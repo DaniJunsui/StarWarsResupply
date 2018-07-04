@@ -149,15 +149,23 @@ namespace StarWarsApp
                     //Parse the input and prove it is OK
                     if (long.TryParse(inputData, out MGLTInput))
                     {
-                        //If pressed 0, the APP will close
-                        if (MGLTInput == 0)
+                        //Check if the number is less than 0
+                        if (MGLTInput > 0)
                         {
-                            exitApp = true;
+                            //If pressed 0, the APP will close
+                            if (MGLTInput == 0)
+                            {
+                                exitApp = true;
+                            }
+                            else
+                            {
+                                //Paint the result
+                                paintResult(MGLTInput, allShips);
+                            }
                         }
                         else
                         {
-                            //Paint the result
-                            paintResult(MGLTInput, allShips);
+                            Console.WriteLine("\n\n\t -- Wrong input... Please... think about your request");
                         }
                     }
                     else
